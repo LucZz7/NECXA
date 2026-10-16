@@ -1139,7 +1139,7 @@
                 android:id="@+id/tvFooterCredit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="NECXA INTELLIGENCE OS • v1.0\nBased on JARVIS by TechGPT X"
+                android:text="NECXA INTELLIGENCE OS • v1.0.1\nBased on JARVIS by TechGPT X"
                 android:textColor="?attr/themeTextMuted"
                 android:textSize="12sp"
                 android:fontFamily="sans-serif-medium"
