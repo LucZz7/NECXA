@@ -18,8 +18,8 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
+      # NOTE: ubuntu-latest runners already ship the Android SDK
+      # (ANDROID_HOME pre-set), so no SDK setup action is needed.
 
       - name: Build debug APK
         run: |
