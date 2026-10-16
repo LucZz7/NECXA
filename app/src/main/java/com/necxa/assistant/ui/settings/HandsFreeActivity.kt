@@ -62,7 +62,7 @@ class HandsFreeActivity : AppCompatActivity() {
         }
 
         binding.btnHandsFreeInstagram.setOnClickListener {
-            openUrl("https://www.instagram.com/techgptx.ai")
+            openUrl("https://www.instagram.com/i_necxy")
         }
 
         binding.tvFooterHandsFree.setOnClickListener {

@@ -103,7 +103,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
-                        android:text="Jarvis Pro · Charon"
+                        android:text="NECXA Pro · Puck"
                         android:textColor="?attr/themeTextPrimary"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -113,15 +113,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
-                        android:text="Ready to help, TechGPT X."
+                        android:text="Ready to help, Boss."
                         android:textColor="?attr/themeTextMuted"
                         android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- 1. Jarvis Pro (Default) -->
+            <!-- 1. NECXA Pro (Default) -->
             <LinearLayout
-                android:id="@+id/cardPersonaJarvis"
+                android:id="@+id/cardPersonaNecxa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -142,7 +142,7 @@
                         android:src="@drawable/ic_nav_home"
                         app:tint="@color/accent_sapphire"
                         android:padding="12dp"
-                        android:contentDescription="Jarvis" />
+                        android:contentDescription="NECXA" />
                 </FrameLayout>
 
                 <LinearLayout
@@ -161,7 +161,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Jarvis Pro"
+                            android:text="NECXA Pro"
                             android:textColor="?attr/themeTextPrimary"
                             android:textSize="16sp"
                             android:fontFamily="sans-serif-medium"
@@ -188,7 +188,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Intelligent, witty &amp; strategic assistant by TechGPT X"
+                        android:text="Intelligent, witty &amp; strategic assistant by Necxy"
                         android:textColor="?attr/themeTextMuted"
                         android:textSize="12sp"
                         android:fontFamily="sans-serif"
@@ -196,14 +196,14 @@
                 </LinearLayout>
 
                 <RadioButton
-                    android:id="@+id/rbSelectJarvis"
+                    android:id="@+id/rbSelectNecxa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="false"
                     android:focusable="false" />
             </LinearLayout>
 
-            <!-- 2. Girlfriend Mode (Pari) -->
+            <!-- 2. Girlfriend Mode (NECXA) -->
             <LinearLayout
                 android:id="@+id/cardPersonaGirlfriend"
                 android:layout_width="match_parent"
@@ -245,7 +245,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Girlfriend Mode (Pari)"
+                            android:text="Girlfriend Mode (NECXA)"
                             android:textColor="?attr/themeTextPrimary"
                             android:textSize="16sp"
                             android:fontFamily="sans-serif-medium"
@@ -287,7 +287,7 @@
                     android:focusable="false" />
             </LinearLayout>
 
-            <!-- 3. Boyfriend Mode (Kabir) -->
+            <!-- 3. Boyfriend Mode (Shantanu) -->
             <LinearLayout
                 android:id="@+id/cardPersonaBoyfriend"
                 android:layout_width="match_parent"
@@ -329,7 +329,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Boyfriend Mode (Kabir)"
+                            android:text="Boyfriend Mode (Shantanu)"
                             android:textColor="?attr/themeTextPrimary"
                             android:textSize="16sp"
                             android:fontFamily="sans-serif-medium"
@@ -371,9 +371,9 @@
                     android:focusable="false" />
             </LinearLayout>
 
-            <!-- 4. TechGPT X Mode -->
+            <!-- 4. NECXA Tech Mode -->
             <LinearLayout
-                android:id="@+id/cardPersonaTechGpt"
+                android:id="@+id/cardPersonaNecxaTech"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -394,7 +394,7 @@
                         android:src="@drawable/ic_code_chip"
                         app:tint="#10B981"
                         android:padding="12dp"
-                        android:contentDescription="TechGPT X" />
+                        android:contentDescription="NECXA Tech" />
                 </FrameLayout>
 
                 <LinearLayout
@@ -413,7 +413,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TechGPT X Mode"
+                            android:text="NECXA Tech Mode"
                             android:textColor="?attr/themeTextPrimary"
                             android:textSize="16sp"
                             android:fontFamily="sans-serif-medium"
@@ -459,7 +459,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="User Name (Default: TechGPT X)"
+                android:text="User Name (Default: Boss)"
                 android:textColor="?attr/themeTextMuted"
                 android:textSize="13sp"
                 android:fontFamily="sans-serif-medium"
@@ -498,8 +498,8 @@
                         android:id="@+id/etUserName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="TechGPT X"
-                        android:text="TechGPT X"
+                        android:hint="Boss"
+                        android:text="Boss"
                         android:inputType="textPersonName"
                         android:textColor="?attr/themeTextPrimary"
                         android:textSize="14sp"

@@ -67,12 +67,12 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
-            android:id="@+id/ivHeaderJarvisLogo"
+            android:id="@+id/ivHeaderNECXALogo"
             android:layout_width="110dp"
             android:layout_height="34dp"
-            android:src="@drawable/ic_jarvis_logo"
+            android:src="@drawable/ic_necxa_logo"
             android:scaleType="fitCenter"
-            android:contentDescription="Jarvis Logo" />
+            android:contentDescription="NECXA Logo" />
 
         <TextView
             android:id="@+id/tvGreeting"

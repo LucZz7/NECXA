@@ -49,7 +49,7 @@
             android:id="@+id/tvChatSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jarvis • Gemini Live • Active"
+            android:text="NECXA • Gemini Live • Active"
             android:textColor="?attr/themeTextMuted"
             android:textSize="12sp"
             android:fontFamily="sans-serif" />
@@ -93,7 +93,7 @@
             android:id="@+id/etMessageInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Message Jarvis"
+            android:hint="Message NECXA"
             android:textColorHint="?attr/themeTextMuted"
             android:textColor="?attr/themeTextPrimary"
             android:textSize="15sp"
@@ -110,7 +110,7 @@
             android:orientation="horizontal"
             android:gravity="center_vertical">
 
-            <!-- Chip 1: Jarvis Persona -->
+            <!-- Chip 1: NECXA Persona -->
             <LinearLayout
                 android:id="@+id/chipPersona"
                 android:layout_width="wrap_content"
@@ -132,7 +132,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Jarvis"
+                    android:text="NECXA"
                     android:textColor="?attr/themeTextPrimary"
                     android:textSize="12sp"
                     android:fontFamily="sans-serif-medium"

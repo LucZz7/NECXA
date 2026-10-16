@@ -45,7 +45,7 @@ class PersonaActivity : AppCompatActivity() {
         }
         selectPersona(initialPersona, updateVoiceDefault = false)
 
-        binding.etUserName.setText(preferences.userName.ifBlank { "TechGPT X" })
+        binding.etUserName.setText(preferences.userName.ifBlank { "Boss" })
 
         selectVoice(preferences.voice)
         updatePersonaPreview()
@@ -58,7 +58,7 @@ class PersonaActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = updatePersonaPreview()
             override fun afterTextChanged(s: Editable?) = Unit
         })
-        binding.cardPersonaJarvis.setOnClickListener {
+        binding.cardPersonaNecxa.setOnClickListener {
             selectPersona(GeminiConstants.PERSONALITY_ASSISTANT, updateVoiceDefault = true)
         }
 
@@ -70,7 +70,7 @@ class PersonaActivity : AppCompatActivity() {
             selectPersona(GeminiConstants.PERSONALITY_BOYFRIEND, updateVoiceDefault = true)
         }
 
-        binding.cardPersonaTechGpt.setOnClickListener {
+        binding.cardPersonaNecxaTech.setOnClickListener {
             selectPersona(GeminiConstants.PERSONALITY_TECHGPT_X, updateVoiceDefault = true)
         }
 
@@ -82,7 +82,7 @@ class PersonaActivity : AppCompatActivity() {
     private fun selectPersona(personaKey: String, updateVoiceDefault: Boolean) {
         currentSelectedPersona = personaKey
 
-        binding.rbSelectJarvis.isChecked = (personaKey == GeminiConstants.PERSONALITY_ASSISTANT)
+        binding.rbSelectNecxa.isChecked = (personaKey == GeminiConstants.PERSONALITY_ASSISTANT)
         binding.rbSelectGirlfriend.isChecked = (personaKey == GeminiConstants.PERSONALITY_GIRLFRIEND)
         binding.rbSelectBoyfriend.isChecked = (personaKey == GeminiConstants.PERSONALITY_BOYFRIEND)
         binding.rbSelectTechGpt.isChecked = (personaKey == GeminiConstants.PERSONALITY_TECHGPT_X)
@@ -92,7 +92,7 @@ class PersonaActivity : AppCompatActivity() {
                 GeminiConstants.PERSONALITY_GIRLFRIEND -> selectVoice("Aoede")
                 GeminiConstants.PERSONALITY_BOYFRIEND -> selectVoice("Fenrir")
                 GeminiConstants.PERSONALITY_TECHGPT_X -> selectVoice("Puck")
-                else -> selectVoice("Charon")
+                else -> selectVoice("Puck")
             }
         }
         if (::binding.isInitialized) updatePersonaPreview()
@@ -101,12 +101,12 @@ class PersonaActivity : AppCompatActivity() {
     private fun updatePersonaPreview() {
         if (!::binding.isInitialized) return
         val persona = when (currentSelectedPersona) {
-            GeminiConstants.PERSONALITY_GIRLFRIEND -> "Pari"
-            GeminiConstants.PERSONALITY_BOYFRIEND -> "Kabir"
-            GeminiConstants.PERSONALITY_TECHGPT_X -> "TechGPT X"
-            else -> "Jarvis Pro"
+            GeminiConstants.PERSONALITY_GIRLFRIEND -> "NECXA"
+            GeminiConstants.PERSONALITY_BOYFRIEND -> "Shantanu"
+            GeminiConstants.PERSONALITY_TECHGPT_X -> "NECXA Tech"
+            else -> "NECXA Pro"
         }
-        val operator = binding.etUserName.text?.toString()?.trim().takeUnless { it.isNullOrBlank() } ?: "TechGPT X"
+        val operator = binding.etUserName.text?.toString()?.trim().takeUnless { it.isNullOrBlank() } ?: "Boss"
         binding.tvPersonaPreview.text = "$persona · ${getSelectedVoice()}"
         binding.tvPersonaGreeting.text = "Ready to help, $operator."
     }
@@ -137,7 +137,7 @@ class PersonaActivity : AppCompatActivity() {
         if (!userName.isNullOrBlank()) {
             preferences.userName = userName
         } else {
-            preferences.userName = "TechGPT X"
+            preferences.userName = "Boss"
         }
 
         val voice = getSelectedVoice()
@@ -145,10 +145,10 @@ class PersonaActivity : AppCompatActivity() {
         preferences.personality = currentSelectedPersona
 
         val personaDisplayName = when (currentSelectedPersona) {
-            GeminiConstants.PERSONALITY_GIRLFRIEND -> "Pari (Girlfriend Mode)"
-            GeminiConstants.PERSONALITY_BOYFRIEND -> "Kabir (Boyfriend Mode)"
-            GeminiConstants.PERSONALITY_TECHGPT_X -> "TechGPT X Neural Core"
-            else -> "Jarvis Pro"
+            GeminiConstants.PERSONALITY_GIRLFRIEND -> "NECXA (Girlfriend Mode)"
+            GeminiConstants.PERSONALITY_BOYFRIEND -> "Shantanu (Boyfriend Mode)"
+            GeminiConstants.PERSONALITY_TECHGPT_X -> "NECXA Tech Neural Core"
+            else -> "NECXA Pro"
         }
 
         Toast.makeText(

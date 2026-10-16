@@ -196,11 +196,11 @@ class SettingsFragment : Fragment() {
         }
 
         binding.btnSocialInstagram.setOnClickListener {
-            openUrl("https://www.instagram.com/techgptx.ai")
+            openUrl("https://www.instagram.com/i_necxy")
         }
 
         binding.btnSocialYoutube.setOnClickListener {
-            openUrl("https://youtube.com/@TechGptX")
+            openUrl("https://youtube.com/@voidnecx")
         }
 
         binding.tvFooterCredit.setOnClickListener {

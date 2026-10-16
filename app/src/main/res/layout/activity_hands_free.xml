@@ -75,9 +75,9 @@
                 <ImageView
                     android:layout_width="140dp"
                     android:layout_height="48dp"
-                    android:src="@drawable/ic_jarvis_logo"
+                    android:src="@drawable/ic_necxa_logo"
                     android:scaleType="fitCenter"
-                    android:contentDescription="Jarvis Logo" />
+                    android:contentDescription="NECXA Logo" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -316,7 +316,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:text="Jarvis uses your phone&apos;s built-in Android accessibility service to type messages, tap send, search YouTube, and adjust settings just like your own hands."
+                            android:text="NECXA uses your phone&apos;s built-in Android accessibility service to type messages, tap send, search YouTube, and adjust settings just like your own hands."
                             android:textColor="?attr/themeTextMuted"
                             android:textSize="12.5sp"
                             android:lineSpacingExtra="2dp" />
@@ -348,7 +348,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Why does Jarvis need Accessibility Permission?"
+                    android:text="Why does NECXA need Accessibility Permission?"
                     android:textColor="?attr/themeTextPrimary"
                     android:textSize="15sp"
                     android:textStyle="bold"
@@ -358,7 +358,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:text="Android protects other apps from being controlled. For Jarvis to send WhatsApp messages or open YouTube videos on your command, you must grant the Jarvis Accessibility Service permission."
+                    android:text="Android protects other apps from being controlled. For NECXA to send WhatsApp messages or open YouTube videos on your command, you must grant the NECXA Accessibility Service permission."
                     android:textColor="?attr/themeTextMuted"
                     android:textSize="13sp"
                     android:lineSpacingExtra="3dp" />
@@ -383,7 +383,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="1. Tap the 'Open Accessibility Settings' button below.\n2. Tap 'Downloaded Apps' or 'Installed Services'.\n3. Tap 'Jarvis Accessibility Service'.\n4. Turn the switch ON and tap 'Allow'."
+                        android:text="1. Tap the 'Open Accessibility Settings' button below.\n2. Tap 'Downloaded Apps' or 'Installed Services'.\n3. Tap 'NECXA Accessibility Service'.\n4. Turn the switch ON and tap 'Allow'."
                         android:textColor="?attr/themeTextPrimary"
                         android:textSize="12.5sp"
                         android:lineSpacingExtra="4dp" />
@@ -525,7 +525,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="• &quot;Remember that my passport is in the blue bag&quot;\n• &quot;Where is my passport?&quot;\n• &quot;What is the weather outside?&quot;\n• &quot;Good morning Jarvis, what is my schedule today?&quot;"
+                    android:text="• &quot;Remember that my passport is in the blue bag&quot;\n• &quot;Where is my passport?&quot;\n• &quot;What is the weather outside?&quot;\n• &quot;Good morning NECXA, what is my schedule today?&quot;"
                     android:textColor="?attr/themeTextMuted"
                     android:textSize="12.5sp"
                     android:lineSpacingExtra="3dp" />
