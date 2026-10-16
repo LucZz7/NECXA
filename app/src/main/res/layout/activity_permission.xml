@@ -162,7 +162,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Required for voice conversations, voice recognition, and real-time audio interaction with Jarvis."
+                    android:text="Required for voice conversations, voice recognition, and real-time audio interaction with NECXA."
                     android:textColor="?attr/themeTextMuted"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -366,7 +366,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Optional: Allows Jarvis floating bubble to appear anywhere on your phone for quick one-tap voice commands."
+                    android:text="Optional: Allows NECXA floating bubble to appear anywhere on your phone for quick one-tap voice commands."
                     android:textColor="?attr/themeTextMuted"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -434,7 +434,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Essential for autonomous AI actions: allows Jarvis to tap buttons, search apps, type messages, and scroll hands-free on your screen."
+                    android:text="Essential for autonomous AI actions: allows NECXA to tap buttons, search apps, type messages, and scroll hands-free on your screen."
                     android:textColor="?attr/themeTextMuted"
                     android:textSize="12sp" />
             </LinearLayout>

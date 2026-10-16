@@ -54,11 +54,11 @@ class HandsFreeActivity : AppCompatActivity() {
         }
 
         binding.btnHandsFreeOfficialTelegram.setOnClickListener {
-            openUrl("https://t.me/+sYana61LvHdmZmE1")
+            openUrl("https://t.me/necxydeveloper")
         }
 
         binding.btnHandsFreeDiscussion.setOnClickListener {
-            openUrl("https://t.me/+DmyO7NFUia01YTVl")
+            openUrl("https://t.me/i_necxy")
         }
 
         binding.btnHandsFreeInstagram.setOnClickListener {
@@ -66,7 +66,7 @@ class HandsFreeActivity : AppCompatActivity() {
         }
 
         binding.tvFooterHandsFree.setOnClickListener {
-            openUrl("https://t.me/+sYana61LvHdmZmE1")
+            openUrl("https://t.me/necxydeveloper")
         }
     }
 

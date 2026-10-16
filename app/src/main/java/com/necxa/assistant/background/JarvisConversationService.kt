@@ -725,7 +725,7 @@ class JarvisConversationService : Service() {
         if (apiKey.isBlank()) {
             _liveError.value = JarvisLiveError(
                 title = "API KEY MISSING",
-                message = "No Gemini API Key configured. Please enter your API Key in Settings to activate Jarvis.",
+                message = "No Gemini API Key configured. Please enter your API Key in Settings to activate NECXA.",
                 errorCode = "API_KEY_MISSING",
                 actionText = "OPEN SETTINGS"
             )
@@ -737,7 +737,7 @@ class JarvisConversationService : Service() {
         if (!PermissionHelper.hasAllRequiredPermissions(this)) {
             _liveError.value = JarvisLiveError(
                 title = "PERMISSIONS REQUIRED",
-                message = "Jarvis requires Microphone and Notification permissions to run. Please grant them in Authorizations.",
+                message = "NECXA requires Microphone and Notification permissions to run. Please grant them in Authorizations.",
                 errorCode = "PERMISSIONS_MISSING",
                 actionText = "GRANT PERMISSIONS"
             )
@@ -830,7 +830,7 @@ class JarvisConversationService : Service() {
                                 if (isPendingWakeGreeting) {
                                     isPendingWakeGreeting = false
                                     if (!hasSpeechInCurrentUtterance) {
-                                        liveWebSocket?.sendClientContent("Hey Jarvis")
+                                        liveWebSocket?.sendClientContent("Hey Necxa")
                                     }
                                 }
                             }
@@ -1268,7 +1268,7 @@ class JarvisConversationService : Service() {
                                 "API_KEY_MISSING" -> {
                                     _liveError.value = JarvisLiveError(
                                         title = "API KEY MISSING",
-                                        message = "No Gemini API key found. Enter your BYOK key in Settings to activate Jarvis.",
+                                        message = "No Gemini API key found. Enter your BYOK key in Settings to activate NECXA.",
                                         errorCode = "API_KEY_MISSING",
                                         actionText = "OPEN SETTINGS"
                                     )
@@ -2975,8 +2975,8 @@ class JarvisConversationService : Service() {
 
         try {
             standbyActivatedTime = System.currentTimeMillis()
-            // Phrase grammar: allow single-word "jarvis", multi-syllable wake phrases, and [unk]
-            val grammar = "[\"jarvis\", \"hey jarvis\", \"hi jarvis\", \"hello jarvis\", \"ok jarvis\", \"okay jarvis\", \"wake up jarvis\", \"sun jarvis\", \"suno jarvis\", \"jarvis jarvis\", \"[unk]\"]"
+            // Phrase grammar: allow single-word "necxa" (+phonetic variants nexa/neksa), multi-syllable wake phrases, and [unk]
+            val grammar = "[\"necxa\", \"nexa\", \"neksa\", \"hey necxa\", \"hey nexa\", \"hey neksa\", \"hi necxa\", \"hi nexa\", \"hello necxa\", \"hello nexa\", \"ok necxa\", \"ok nexa\", \"okay necxa\", \"okay nexa\", \"wake up necxa\", \"wake up nexa\", \"sun necxa\", \"suno necxa\", \"suno nexa\", \"necxa necxa\", \"[unk]\"]"
             val rec = Recognizer(model, 16000.0f, grammar)
             rec.setWords(true)
             val spkModel = VoskModelManager.speakerModel
@@ -3032,16 +3032,15 @@ class JarvisConversationService : Service() {
     }
 
     private val VALID_WAKE_PHRASES = setOf(
-        "jarvis",
-        "hey jarvis",
-        "hi jarvis",
-        "hello jarvis",
-        "ok jarvis",
-        "okay jarvis",
-        "wake up jarvis",
-        "sun jarvis",
-        "suno jarvis",
-        "jarvis jarvis"
+        "necxa", "nexa", "neksa",
+        "hey necxa", "hey nexa", "hey neksa",
+        "hi necxa", "hi nexa",
+        "hello necxa", "hello nexa",
+        "ok necxa", "ok nexa",
+        "okay necxa", "okay nexa",
+        "wake up necxa", "wake up nexa",
+        "sun necxa", "suno necxa", "suno nexa",
+        "necxa necxa"
     )
 
     private fun checkVoskHypothesis(hypothesisJson: String?) {
@@ -3086,7 +3085,7 @@ class JarvisConversationService : Service() {
             val cleanPhrase = wordList.joinToString(" ")
             val isMatch = cleanPhrase in VALID_WAKE_PHRASES ||
                     VALID_WAKE_PHRASES.any { cleanPhrase.contains(it) } ||
-                    wordList.contains("jarvis")
+                    wordList.any { it == "necxa" || it == "nexa" || it == "neksa" }
 
             if (!isMatch) {
                 Log.d("JarvisService", "WAKE REJECTED: '$cleanPhrase' is not an exact valid wake phrase.")
@@ -3102,21 +3101,21 @@ class JarvisConversationService : Service() {
 
             // 4. Acoustic Verification:
             // 4. Acoustic Verification:
-            // "jarvis" must be specifically recognized with confidence
-            val jarvisConf = wordConfMap["jarvis"] ?: 0.0
-            if (jarvisConf < 0.70) {
-                Log.w("JarvisService", "WAKE REJECTED: 'jarvis' word confidence too low ($jarvisConf < 0.70). Ignored.")
+            // "necxa" (or phonetic variant nexa/neksa) must be specifically recognized with confidence
+            val wakeNameConf = maxOf(wordConfMap["necxa"] ?: 0.0, wordConfMap["nexa"] ?: 0.0, wordConfMap["neksa"] ?: 0.0)
+            if (wakeNameConf < 0.70) {
+                Log.w("JarvisService", "WAKE REJECTED: 'necxa' word confidence too low ($wakeNameConf < 0.70). Ignored.")
                 return
             }
 
-            if (wordList.size == 1 && wordList[0] == "jarvis") {
-                // Standalone single-word "jarvis"
+            if (wordList.size == 1 && (wordList[0] == "necxa" || wordList[0] == "nexa" || wordList[0] == "neksa")) {
+                // Standalone single-word "necxa"
                 if (avgConf < 0.75) {
-                    Log.w("JarvisService", "WAKE REJECTED: Standalone 'jarvis' failed checks (conf=$avgConf). Ignored.")
+                    Log.w("JarvisService", "WAKE REJECTED: Standalone 'necxa' failed checks (conf=$avgConf). Ignored.")
                     return
                 }
             } else {
-                // Multi-word phrases like "hey jarvis", "hello jarvis", "ok jarvis"
+                // Multi-word phrases like "hey necxa", "hello necxa", "ok necxa"
                 if (avgConf < 0.65) {
                     Log.w("JarvisService", "WAKE REJECTED: Wake phrase failed checks (conf=$avgConf). Ignored.")
                     return
@@ -3360,7 +3359,7 @@ class JarvisConversationService : Service() {
 
     private fun buildNotification(): android.app.Notification {
         val (title, text) = when {
-            _isStandby.value -> "Jarvis is in the background" to "Say \"Hey Jarvis\" to wake me up"
+            _isStandby.value -> "Necxa is in the background" to "Say \"Hey Necxa\" to wake me up"
             _isSessionOn.value && !_connectionStatus.value.equals("LIVE", ignoreCase = true) ->
                 "Jarvis is reconnecting" to "Connection: ${_connectionStatus.value}. Requests may not be heard yet."
             _isSessionOn.value && lastResponseTimedOut ->
@@ -3372,7 +3371,7 @@ class JarvisConversationService : Service() {
             _isSessionOn.value && _conversationState.value == ConversationState.LISTENING ->
                 "Jarvis is listening" to "Speak your request now"
             _isSessionOn.value ->
-                "Jarvis is ready" to "Connected. Say your request or \"Hey Jarvis\"."
+                "Necxa is ready" to "Connected. Say your request or \"Hey Necxa\"."
             else -> "Jarvis" to "Starting up\u2026"
         }
         val contentIntent = PendingIntent.getActivity(

@@ -41,7 +41,7 @@ object CommandParser {
 
     fun parse(input: String, isAwaitingConfirmation: Boolean = false, isAwaitingDisambiguation: Boolean = false): ParsedCommandResult {
         val clean = input
-            .replace(Regex("(?i)^(hey jarvis|hi jarvis|hello jarvis|ok jarvis|jarvis|service)[,\\s]*"), "")
+            .replace(Regex("(?i)^(hey jarvis|hey necxa|hey nexa|hi jarvis|hi necxa|hello jarvis|hello necxa|ok jarvis|ok necxa|jarvis|necxa|nexa|neksa|service)[,\\s]*"), "")
             .replace(Regex("[.,!?:;\"'\\s]+$"), "")
             .trim()
             .lowercase(Locale.ROOT)
@@ -218,11 +218,11 @@ object CommandParser {
 
         // 7. Memory Commands
         if (clean.startsWith("remember ") || clean.startsWith("remember that ")) {
-            val fact = input.replace(Regex("(?i)^(hey jarvis|jarvis|please)?\\s*(remember that|remember)\\s*"), "").trim()
+            val fact = input.replace(Regex("(?i)^(hey jarvis|hey necxa|hey nexa|jarvis|necxa|nexa|please)?\\s*(remember that|remember)\\s*"), "").trim()
             return ParsedCommandResult(JarvisCommand.Remember(fact), 0.95f, "MEMORY_REMEMBER")
         }
         if (clean.startsWith("forget ") || clean.startsWith("forget that ") || clean.startsWith("forget my ")) {
-            val target = input.replace(Regex("(?i)^(hey jarvis|jarvis|please)?\\s*(forget that|forget my|forget about|forget)\\s*"), "").trim()
+            val target = input.replace(Regex("(?i)^(hey jarvis|hey necxa|hey nexa|jarvis|necxa|nexa|please)?\\s*(forget that|forget my|forget about|forget)\\s*"), "").trim()
             return ParsedCommandResult(JarvisCommand.Forget(target), 0.95f, "MEMORY_FORGET")
         }
         if (clean == "what do you remember about me" || clean == "what do you remember" || clean == "tell me what you remember") {
@@ -361,7 +361,7 @@ object CommandParser {
         val ytSuffixMatch = ytSuffixRegex.find(clean)
         if (ytSuffixMatch != null && !clean.startsWith("open ") && !clean.startsWith("launch ")) {
             var raw = ytSuffixMatch.groupValues[1].trim()
-            raw = raw.replace(Regex("(?i)^(hey jarvis|jarvis|please|in|on|at|pe|par)\\s+"), "")
+            raw = raw.replace(Regex("(?i)^(hey jarvis|hey necxa|hey nexa|jarvis|necxa|nexa|please|in|on|at|pe|par)\\s+"), "")
                 .replace(Regex("(?i)^(youtube\\s+(?:pe|par|in|on)?)\\s*"), "")
                 .replace(Regex("(?i)\\s+(ke\\s+gane|ka\\s+gana|song|video|gana)$"), "")
                 .trim()

@@ -75,7 +75,7 @@ class ChatFragment : Fragment() {
 
         // Mode Chips
         binding.chipPersona.setOnClickListener {
-            Toast.makeText(requireContext(), "Persona: Jarvis Active", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Persona: NECXA Active", Toast.LENGTH_SHORT).show()
         }
 
         binding.chipMode.setOnClickListener {

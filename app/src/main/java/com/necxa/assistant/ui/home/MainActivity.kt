@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
         if (result.resultCode == RESULT_OK && result.data != null) {
             try {
                 if (!JarvisConversationService.isSessionOn.value || JarvisConversationService.connectionStatus.value != "LIVE") {
-                    Toast.makeText(this, "Start Jarvis and wait for LIVE before sharing your screen.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Start NECXA and wait for LIVE before sharing your screen.", Toast.LENGTH_LONG).show()
                     return@registerForActivityResult
                 }
                 if (!JarvisConversationService.elevateToMediaProjection()) {
@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity() {
                     val captureManager = com.necxa.assistant.vision.ScreenCaptureManager.getInstance()
                     if (!captureManager.isSharing.value) return@launch
                     if (captureManager.hasReceivedFrame.value) {
-                        Toast.makeText(this@MainActivity, "Screen sharing is live. Jarvis is receiving screen frames.", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@MainActivity, "Screen sharing is live. NECXA is receiving screen frames.", Toast.LENGTH_LONG).show()
                     } else {
                         JarvisConversationService.stopScreenCapture()
                         Toast.makeText(this@MainActivity, "No screen frames arrived, so sharing was stopped. Please try again.", Toast.LENGTH_LONG).show()
@@ -134,7 +134,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Screen sharing stopped.", Toast.LENGTH_SHORT).show()
         } else {
             if (!JarvisConversationService.isSessionOn.value || JarvisConversationService.connectionStatus.value != "LIVE") {
-                Toast.makeText(this, "Start Jarvis and wait for LIVE before sharing your screen.", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Start NECXA and wait for LIVE before sharing your screen.", Toast.LENGTH_LONG).show()
                 return
             }
             screenCaptureLauncher.launch(mediaProjectionManager.createScreenCaptureIntent())
@@ -153,7 +153,7 @@ class MainActivity : AppCompatActivity() {
         if (!com.necxa.assistant.security.AppIdentityVerifier.isTrustedRelease(this)) {
             MaterialAlertDialogBuilder(this)
                 .setTitle("App integrity check failed")
-                .setMessage("This JARVIS build is not signed with the configured official release certificate. Sensitive features have been blocked.")
+                .setMessage("This NECXA build is not signed with the configured official release certificate. Sensitive features have been blocked.")
                 .setCancelable(false)
                 .setPositiveButton("Close") { _, _ -> finish() }
                 .show()
@@ -206,7 +206,7 @@ class MainActivity : AppCompatActivity() {
                     selectTab(TAB_HOME)
                 } else {
                     // Preserve Android's normal root behavior (return to launcher) only
-                    // after the user is already on JARVIS Home.
+                    // after the user is already on NECXA Home.
                     isEnabled = false
                     onBackPressedDispatcher.onBackPressed()
                     isEnabled = true
@@ -402,7 +402,7 @@ class MainActivity : AppCompatActivity() {
     private fun showBatteryPermissionDialog() {
         MaterialAlertDialogBuilder(this)
             .setTitle("Unrestricted Battery Required")
-            .setMessage("Jarvis requires Unrestricted Battery access so it can stay active in the background and respond to wake words.\n\nPlease allow it or open Settings.")
+            .setMessage("NECXA requires Unrestricted Battery access so it can stay active in the background and respond to wake words.\n\nPlease allow it or open Settings.")
             .setPositiveButton("ALLOW") { _, _ ->
                 PermissionHelper.requestBatteryOptimization(this)
             }

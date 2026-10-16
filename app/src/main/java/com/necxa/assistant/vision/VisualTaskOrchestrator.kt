@@ -103,7 +103,7 @@ class VisualTaskOrchestrator(
             return@withContext TaskActionResult(false, "Spotify is not the foreground app.", verified = false)
         }
         val query = goal
-            .replace(Regex("(?i)\\b(jarvis|spotify|please|find|search|look for|play|song|track|music|playlist|bajao|chalao|karo|kar do|do|dhundo|dhoondho|dhoondh|talaash|gaana|gana|meri|mera|par|mein|ko|the|a|an|on|in|my)\\b"), " ")
+            .replace(Regex("(?i)\\b(jarvis|necxa|nexa|spotify|please|find|search|look for|play|song|track|music|playlist|bajao|chalao|karo|kar do|do|dhundo|dhoondho|dhoondh|talaash|gaana|gana|meri|mera|par|mein|ko|the|a|an|on|in|my)\\b"), " ")
             .replace(Regex("\\s+"), " ").trim(' ', ',', '.', '!', '?', '"', '\'')
         if (query.length < 2) {
             return@withContext TaskActionResult(false, "Could not identify a song title in the request.", verified = false)
@@ -1164,7 +1164,7 @@ class VisualTaskOrchestrator(
                 if (screenCaptureManager.isScreenShareActive()) {
                     "$product's prompt field is not exposed to accessibility. Screen Share is enabled, but Android has not delivered a fresh frame yet; wait for the preview to update and retry once."
                 } else {
-                    "$product's prompt field is not exposed to accessibility and no visual frame is available. Enable Screen Share once, then JARVIS can target the visible prompt field."
+                    "$product's prompt field is not exposed to accessibility and no visual frame is available. Enable Screen Share once, then NECXA can target the visible prompt field."
                 }
             } else {
                 "$product's prompt field could not be identified from the current frame. Keep the editor/composer visible and inspect the screen before retrying."

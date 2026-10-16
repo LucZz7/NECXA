@@ -195,7 +195,7 @@ object DomainNormalizer {
      */
     fun extractMultipleUrls(input: String): List<String> {
         val clean = input
-            .replace(Regex("(?i)^(hey jarvis|hi jarvis|hello jarvis|ok jarvis|jarvis|service|please)?\\s*(open|launch|go to|browse|in chrome open|on google chrome open)\\s+"), "")
+            .replace(Regex("(?i)^(hey jarvis|hey necxa|hey nexa|hi jarvis|hi necxa|hello jarvis|hello necxa|ok jarvis|ok necxa|jarvis|necxa|nexa|neksa|service|please)?\\s*(open|launch|go to|browse|in chrome open|on google chrome open)\\s+"), "")
             .replace(Regex("(?i)\\s+(in chrome|in browser|on chrome|on browser|in multiple tabs|tabs|now|please)$"), "")
             .trim()
 

@@ -33,9 +33,9 @@ class VoiceEnrollmentActivity : AppCompatActivity() {
     private val preferences by lazy { JarvisApp.instance.preferences }
 
     private val samplePrompts = listOf(
-        "\"Hey Jarvis, wake up\"",
-        "\"Jarvis, turn on the flashlight\"",
-        "\"Jarvis, what is the weather today?\""
+        "\"Hey Necxa, wake up\"",
+        "\"Necxa, turn on the flashlight\"",
+        "\"Necxa, what is the weather today?\""
     )
 
     private val recordedVectors = mutableListOf<FloatArray>()
@@ -88,12 +88,12 @@ class VoiceEnrollmentActivity : AppCompatActivity() {
         if (hasProfile) {
             binding.tvEnrollmentStatus.text = if (isEnabled) "OWNER VOICE: ACTIVE" else "OWNER VOICE: PAUSED"
             binding.tvEnrollmentStatus.setTextColor(getColor(if (isEnabled) R.color.primary_cyan else R.color.text_secondary))
-            binding.tvStatusDescription.text = "Jarvis is calibrated to your voice. Any speech or commands from other people are automatically blocked."
+            binding.tvStatusDescription.text = "NECXA is calibrated to your voice. Any speech or commands from other people are automatically blocked."
             binding.viewStatusDot.setBackgroundResource(if (isEnabled) R.drawable.circle_cyan else R.drawable.circle_cyan)
         } else {
             binding.tvEnrollmentStatus.text = "OWNER VOICE: NOT ENROLLED"
             binding.tvEnrollmentStatus.setTextColor(getColor(R.color.status_amber))
-            binding.tvStatusDescription.text = "Enroll 3 voice samples below. Once saved, Jarvis will respond ONLY to you and ignore anyone else."
+            binding.tvStatusDescription.text = "Enroll 3 voice samples below. Once saved, NECXA will respond ONLY to you and ignore anyone else."
         }
 
         // Sensitivity
@@ -176,7 +176,7 @@ class VoiceEnrollmentActivity : AppCompatActivity() {
         binding.btnClearProfile.setOnClickListener {
             MaterialAlertDialogBuilder(this)
                 .setTitle("Reset Voice Profile?")
-                .setMessage("This will remove your enrolled voiceprint. Jarvis will respond to all voices until you re-train.")
+                .setMessage("This will remove your enrolled voiceprint. NECXA will respond to all voices until you re-train.")
                 .setPositiveButton("RESET") { _, _ ->
                     preferences.clearOwnerVoiceProfile()
                     recordedVectors.clear()
@@ -316,11 +316,11 @@ class VoiceEnrollmentActivity : AppCompatActivity() {
                 if (result.isMatch) {
                     binding.tvTestVerdict.text = "VERIFIED: OWNER (${result.similarityPercent}% MATCH)"
                     binding.tvTestVerdict.setTextColor(getColor(R.color.status_green))
-                    binding.tvTestDetails.text = "Voice matched! Jarvis will accept commands. (Distance: ${String.format(Locale.ROOT, "%.2f", result.distance)}, Threshold: ${result.threshold})"
+                    binding.tvTestDetails.text = "Voice matched! NECXA will accept commands. (Distance: ${String.format(Locale.ROOT, "%.2f", result.distance)}, Threshold: ${result.threshold})"
                 } else {
                     binding.tvTestVerdict.text = "REJECTED: UNKNOWN VOICE (${result.similarityPercent}% MATCH)"
                     binding.tvTestVerdict.setTextColor(getColor(R.color.status_red))
-                    binding.tvTestDetails.text = "Non-owner voice detected! Jarvis will ignore. (Distance: ${String.format(Locale.ROOT, "%.2f", result.distance)}, Threshold: ${result.threshold})"
+                    binding.tvTestDetails.text = "Non-owner voice detected! NECXA will ignore. (Distance: ${String.format(Locale.ROOT, "%.2f", result.distance)}, Threshold: ${result.threshold})"
                 }
             }
         }

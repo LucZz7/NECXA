@@ -73,7 +73,7 @@ class MemoryManager(
 
     suspend fun rememberFact(rawInput: String): String {
         val clean = rawInput
-            .replace(Regex("(?i)^(hey jarvis|jarvis|please)?\\s*(remember that|remember to|remember|yaad rakhna ki|yaad rakhna)\\s*"), "")
+            .replace(Regex("(?i)^(hey jarvis|hey necxa|hey nexa|jarvis|necxa|nexa|please)?\\s*(remember that|remember to|remember|yaad rakhna ki|yaad rakhna)\\s*"), "")
             .trim()
 
         if (clean.isBlank()) {
@@ -111,7 +111,7 @@ class MemoryManager(
 
     suspend fun forgetFact(query: String): String {
         val clean = query
-            .replace(Regex("(?i)^(hey jarvis|jarvis|please)?\\s*(forget that|forget my|forget about|forget|bhool jao)\\s*"), "")
+            .replace(Regex("(?i)^(hey jarvis|hey necxa|hey nexa|jarvis|necxa|nexa|please)?\\s*(forget that|forget my|forget about|forget|bhool jao)\\s*"), "")
             .trim()
 
         if (clean.isBlank()) {
@@ -292,14 +292,14 @@ class MemoryManager(
             }
 
             // 3. BIRTHDAY EXTRACTION (English & Hinglish)
-            val bdayMatch = Regex("(?i).*\\b(?:my\\s+birthday\\s+is|born\\s+on|my\\s+bday\\s+is)\\s+(?:on\\s+)?([a-zA-Z0-9\\s,]+?)(?:[.,!]|\$|\\s+sir|\\s+jarvis)").find(clean)
+            val bdayMatch = Regex("(?i).*\\b(?:my\\s+birthday\\s+is|born\\s+on|my\\s+bday\\s+is)\\s+(?:on\\s+)?([a-zA-Z0-9\\s,]+?)(?:[.,!]|\$|\\s+sir|\\s+(?:jarvis|necxa|nexa))").find(clean)
                 ?: Regex("(?i).*\\b(?:mera\\s+)?(?:birthday|bday|janamdin)\\s+(?:hai\\s+)?([a-zA-Z0-9\\s]+?)(?:\\s+ko\\s+hai|\\s+ko|\\s+hai)?\$").find(clean)
                 ?: Regex("(?i).*\\b([a-zA-Z0-9\\s]+?)\\s+(?:ko\\s+mera\\s+birthday\\s+hai|mera\\s+birthday\\s+hai).*").find(clean)
 
             if (bdayMatch != null) {
                 var bday = bdayMatch.groupValues[1].trim()
                 bday = bday.replace(Regex("(?i)^(on|ko|hai)\\s+"), "")
-                    .replace(Regex("(?i)\\s+(ko|hai|sir|jarvis|please)$"), "")
+                    .replace(Regex("(?i)\\s+(ko|hai|sir|jarvis|necxa|nexa|please)$"), "")
                     .trim()
                 if (bday.isNotBlank() && bday.length >= 3 && !listOf("sir", "jarvis", "today", "tomorrow", "when").contains(bday.lowercase(Locale.ROOT))) {
                     preferences.userBirthday = bday

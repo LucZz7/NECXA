@@ -66,7 +66,7 @@ class SettingsFragment : Fragment() {
     private fun loadUserData() {
         val userName = preferences.userName.ifBlank { "Rehaan" }
         binding.tvProfileName.text = userName
-        binding.tvProfileSubtitle.text = "JARVIS OPERATOR • PRIMARY USER"
+        binding.tvProfileSubtitle.text = "NECXA OPERATOR • PRIMARY USER"
 
         // Owner Voice Profile Status
         val hasVoiceProfile = preferences.hasOwnerVoiceProfile()
@@ -184,7 +184,7 @@ class SettingsFragment : Fragment() {
 
         binding.rowAppIdentity.setOnClickListener {
             MaterialAlertDialogBuilder(requireContext())
-                .setTitle("JARVIS App Identity")
+                .setTitle("NECXA App Identity")
                 .setMessage(com.necxa.assistant.security.AppIdentityVerifier.report(requireContext()))
                 .setPositiveButton("Close", null)
                 .show()
@@ -192,7 +192,7 @@ class SettingsFragment : Fragment() {
 
         // Social Media Community Buttons
         binding.btnSocialTelegram.setOnClickListener {
-            openUrl("https://t.me/+sYana61LvHdmZmE1")
+            openUrl("https://t.me/necxydeveloper")
         }
 
         binding.btnSocialInstagram.setOnClickListener {
@@ -204,7 +204,7 @@ class SettingsFragment : Fragment() {
         }
 
         binding.tvFooterCredit.setOnClickListener {
-            openUrl("https://t.me/+sYana61LvHdmZmE1")
+            openUrl("https://t.me/necxydeveloper")
         }
     }
 
@@ -227,7 +227,7 @@ class SettingsFragment : Fragment() {
     private fun showWakeWordDialog() {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle("Wake Words & Sensitivity")
-            .setMessage("• Wake Words: 'Jarvis', 'Hey Jarvis'\n• Acoustic Trigger: Double Clap detection\n• Standby Mode: Low-power local Vosk offline engine\n\nWhen standby listening is active, Jarvis awakens instantly upon hearing your voice.")
+            .setMessage("• Wake Words: 'Necxa', 'Hey Necxa'\n• Acoustic Trigger: Double Clap detection\n• Standby Mode: Low-power local Vosk offline engine\n\nWhen standby listening is active, NECXA awakens instantly upon hearing your voice.")
             .setPositiveButton("Got It", null)
             .show()
     }
@@ -235,7 +235,7 @@ class SettingsFragment : Fragment() {
     private fun showAppAutomationDialog() {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle("Autonomous App Automation")
-            .setMessage("Jarvis is integrated with your device capabilities:\n\n• WhatsApp: Hands-free messaging & calls\n• YouTube: Search and playback automation\n• Phone Controls: Flashlight, Volume, Brightness, Bluetooth\n• Apps & Tools: Launch, search, and manage apps via voice")
+            .setMessage("NECXA is integrated with your device capabilities:\n\n• WhatsApp: Hands-free messaging & calls\n• YouTube: Search and playback automation\n• Phone Controls: Flashlight, Volume, Brightness, Bluetooth\n• Apps & Tools: Launch, search, and manage apps via voice")
             .setPositiveButton("Close", null)
             .show()
     }
@@ -247,7 +247,7 @@ class SettingsFragment : Fragment() {
         }
         MaterialAlertDialogBuilder(requireContext())
             .setTitle("Operator Name")
-            .setMessage("Enter the name Jarvis should use to address you:")
+            .setMessage("Enter the name NECXA should use to address you:")
             .setView(input)
             .setPositiveButton("Save") { _, _ ->
                 val newName = input.text.toString().trim()

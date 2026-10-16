@@ -79,7 +79,7 @@ object ActivityLauncherHelper {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     val channel = NotificationChannel(
                         LAUNCHER_CHANNEL_ID,
-                        "Jarvis Action Launcher",
+                        "NECXA Action Launcher",
                         NotificationManager.IMPORTANCE_HIGH
                     ).apply {
                         setSound(null, null)
@@ -100,7 +100,7 @@ object ActivityLauncherHelper {
                 val notif = NotificationCompat.Builder(context, LAUNCHER_CHANNEL_ID)
                     .setSmallIcon(android.R.drawable.ic_btn_speak_now)
                     .setContentTitle("Opening App")
-                    .setContentText("Jarvis executing action...")
+                    .setContentText("NECXA executing action...")
                     .setPriority(NotificationCompat.PRIORITY_MAX)
                     .setCategory(NotificationCompat.CATEGORY_ALARM)
                     .setFullScreenIntent(pi, true)

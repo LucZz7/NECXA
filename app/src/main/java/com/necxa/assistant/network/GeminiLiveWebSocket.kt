@@ -294,7 +294,7 @@ class GeminiLiveWebSocket(
                         // 4. search_and_play_youtube
                         put(JSONObject().apply {
                             put("name", "search_and_play_youtube")
-                            put("description", "Searches YouTube and IMMEDIATELY OPENS AND PLAYS the requested video or song. Use whenever the user directly commands you to PLAY a video or song (e.g. \"play Tum Hi Ho\", \"play Believer on YouTube\", \"play XYZ song or youtube\", \"YouTube pe Arijit Singh chalao\", \"Jarvis video play karo\"). CRITICAL RULE: If the user says 'play', ALWAYS use search_and_play_youtube, NEVER use search_youtube. STRICT PROHIBITION: NEVER use this tool when the user is casually conversing or humming without an explicit play command.")
+                            put("description", "Searches YouTube and IMMEDIATELY OPENS AND PLAYS the requested video or song. Use whenever the user directly commands you to PLAY a video or song (e.g. \"play Tum Hi Ho\", \"play Believer on YouTube\", \"play XYZ song or youtube\", \"YouTube pe Arijit Singh chalao\", \"Necxa video play karo\"). CRITICAL RULE: If the user says 'play', ALWAYS use search_and_play_youtube, NEVER use search_youtube. STRICT PROHIBITION: NEVER use this tool when the user is casually conversing or humming without an explicit play command.")
                             put("parameters", JSONObject().apply {
                                 put("type", "OBJECT")
                                 put("properties", JSONObject().apply {
@@ -474,7 +474,7 @@ class GeminiLiveWebSocket(
                         // 13. builtin_chrome_search
                         put(JSONObject().apply {
                             put("name", "builtin_chrome_search")
-                            put("description", "Performs invisible, background web research using JARVIS's built-in Chrome engine. Use whenever the user asks a question, topic, real-time factual query, news, weather, or live information that you don't know off-hand.")
+                            put("description", "Performs invisible, background web research using NECXA's built-in Chrome engine. Use whenever the user asks a question, topic, real-time factual query, news, weather, or live information that you don't know off-hand.")
                             put("parameters", JSONObject().apply {
                                 put("type", "OBJECT")
                                 put("properties", JSONObject().apply {
@@ -490,7 +490,7 @@ class GeminiLiveWebSocket(
                         // 14. go_to_background
                         put(JSONObject().apply {
                             put("name", "go_to_background")
-                            put("description", "Sends JARVIS to the background, minimizes the app to the home screen, and enters standby wake-word listening. Use immediately whenever user says 'go to background', 'go background', 'minimize', 'close', 'background me jao', 'go to home screen', 'go to sleep', or 'enter standby'.")
+                            put("description", "Sends NECXA to the background, minimizes the app to the home screen, and enters standby wake-word listening. Use immediately whenever user says 'go to background', 'go background', 'minimize', 'close', 'background me jao', 'go to home screen', 'go to sleep', or 'enter standby'.")
                             put("parameters", JSONObject().apply {
                                 put("type", "OBJECT")
                                 put("properties", JSONObject())
